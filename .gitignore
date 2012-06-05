@@ -1,4 +1,13 @@
+build
+out
+output
+dot
+.gradle
+.idea
+*.iml
+*.dot
 *.class
+*~
 
 # Package Files #
 *.jar
