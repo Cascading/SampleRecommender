@@ -5,7 +5,7 @@ The goal for this project is to create a sample application in
 simple kind of [social
 recommender](http://en.wikipedia.org/wiki/Recommender_system).
 
-More detailed backgrond information and step-by-step documentation is provided at https://github.com/Cascading/SampleRecommender/wiki/Cascading-Sample-Recommender
+More detailed backgrond information and step-by-step documentation is provided at https://github.com/Cascading/SampleRecommender/wiki
 
 Build Instructions
 ==================
