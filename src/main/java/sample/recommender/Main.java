@@ -6,6 +6,7 @@
 
 package sample.recommender;
 
+import java.util.Locale;
 import java.util.Properties;
 
 import cascading.flow.Flow;
@@ -174,7 +175,7 @@ public class Main
     */
 
     Fields similarityArguments = new Fields( "similarity" );
-    commonFilter = String.format( "similarity < %f || similarity > %f", MIN_SIMILARITY, MAX_SIMILARITY );
+    commonFilter = String.format(Locale.US, "similarity < %f || similarity > %f", MIN_SIMILARITY, MAX_SIMILARITY );
     joinPipe = new Each( joinPipe, similarityArguments, new ExpressionFilter( commonFilter, Double.TYPE ) );
 
     /*
