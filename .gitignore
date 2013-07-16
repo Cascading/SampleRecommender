@@ -13,3 +13,6 @@ dot
 *.jar
 *.war
 *.ear
+.settings
+.project
+.classpath

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
@@ -9,7 +9,12 @@ import java.text.SimpleDateFormat
 apply plugin: 'java'
 apply plugin: 'idea'
 
+apply from: 'etc/providedCompile.gradle'
+
 archivesBaseName = 'recommender'
+
+ext.cascadingVersion = "2.2.0-+"
+ext.hadoopVersion = '1.1.2'
 
 repositories {
   mavenLocal()
@@ -18,9 +23,13 @@ repositories {
 }
 
 dependencies {
-  compile( 'cascading:cascading-core:2.0.1' ) { exclude group: 'log4j' }
-  compile( 'cascading:cascading-hadoop:2.0.1' ) { transitive = false }
+  compile( group: 'cascading', name: 'cascading-core', version: cascadingVersion )
+  compile( group: 'cascading', name: 'cascading-hadoop', version: cascadingVersion )
+
+  providedCompile( group: 'org.apache.hadoop', name: 'hadoop-core', version: hadoopVersion )
 }
+
+
 
 jar {
   description = "Assembles a Hadoop ready jar file"
