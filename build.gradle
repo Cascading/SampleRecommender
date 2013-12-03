@@ -13,7 +13,7 @@ apply from: 'etc/providedCompile.gradle'
 
 archivesBaseName = 'recommender'
 
-ext.cascadingVersion = "2.5.0-+"
+ext.cascadingVersion = "2.5.1"
 ext.hadoopVersion = '1.2.1'
 
 repositories {
