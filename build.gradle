@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ * Copyright (c) 2007-2014 Concurrent, Inc. All Rights Reserved.
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
@@ -13,22 +13,21 @@ apply from: 'etc/providedCompile.gradle'
 
 archivesBaseName = 'recommender'
 
-ext.cascadingVersion = "2.5.1"
-ext.hadoopVersion = '1.2.1'
+ext.cascadingVersion = "2.6.0"
+ext.hadoopVersion = '2.4.1'
 
 repositories {
   mavenLocal()
   mavenCentral()
-  mavenRepo name: 'conjars', url: 'http://conjars.org/repo/'
+  maven{ url 'http://conjars.org/repo/' }
 }
 
 dependencies {
   compile( group: 'cascading', name: 'cascading-core', version: cascadingVersion )
-  compile( group: 'cascading', name: 'cascading-hadoop', version: cascadingVersion )
+  compile( group: 'cascading', name: 'cascading-hadoop2-mr1', version: cascadingVersion )
 
-  providedCompile( group: 'org.apache.hadoop', name: 'hadoop-core', version: hadoopVersion )
+  providedCompile( group: 'org.apache.hadoop', name: 'hadoop-mapreduce-client-core', version: hadoopVersion )
 }
-
 
 
 jar {
