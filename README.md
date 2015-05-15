@@ -1,9 +1,8 @@
 Cascading Sample Recommender
 ============================
-The goal for this project is to create a sample application in
-[Cascading 2.2](http://www.cascading.org/) which shows how to build a
-simple kind of [social
-recommender](http://en.wikipedia.org/wiki/Recommender_system).
+
+The goal for this project is to create a sample application in [Cascading 2.7](http://www.cascading.org/) which shows
+how to build a simple kind of [social recommender](http://en.wikipedia.org/wiki/Recommender_system).
 
 More detailed background information and step-by-step documentation is provided at https://github.com/Cascading/SampleRecommender/wiki
 
@@ -21,7 +20,7 @@ To build the sample app from the command line use:
 Before running this sample app, be sure to set your `HADOOP_HOME` environment variable and clear the `output` directory, then to run on a desktop/laptop with Apache Hadoop in standalone mode:
 
     rm -rf output
-    hadoop jar ./build/libs/recommender.jar data/en.stop data/tweets output/token output/similarity
+    yarn jar ./build/libs/recommender.jar data/en.stop data/tweets output/token output/similarity
 
 To view the results:
 
