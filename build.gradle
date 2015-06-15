@@ -6,15 +6,24 @@
 
 import java.text.SimpleDateFormat
 
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:2.2.1'
+  }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'provided-base'
 
-apply from: 'etc/providedCompile.gradle'
 
 archivesBaseName = 'recommender'
 
-ext.cascadingVersion = "2.7.0"
-ext.hadoopVersion = '2.4.1'
+ext.cascadingVersion = "3.0.0"
+ext.hadoopVersion = '2.6.0'
 
 repositories {
   mavenLocal()
@@ -26,14 +35,15 @@ dependencies {
   compile( group: 'cascading', name: 'cascading-core', version: cascadingVersion )
   compile( group: 'cascading', name: 'cascading-hadoop2-mr1', version: cascadingVersion )
 
-  providedCompile( group: 'org.apache.hadoop', name: 'hadoop-mapreduce-client-core', version: hadoopVersion )
+  provided( group: 'org.apache.hadoop', name: 'hadoop-mapreduce-client-core', version: hadoopVersion )
+  provided( group: 'org.apache.hadoop', name: 'hadoop-common', version: hadoopVersion )
 }
 
 jar {
   description = "Assembles a Hadoop ready jar file"
   doFirst {
     into( 'lib' ) {
-      from configurations.compile
+      from configurations.runtime.minus( configurations.provided )
     }
   }
 

@@ -12,7 +12,7 @@ import java.util.Properties;
 import cascading.flow.Flow;
 import cascading.flow.FlowConnector;
 import cascading.flow.FlowDef;
-import cascading.flow.hadoop.HadoopFlowConnector;
+import cascading.flow.hadoop2.Hadoop2MR1FlowConnector;
 import cascading.operation.AssertionLevel;
 import cascading.operation.Debug;
 import cascading.operation.DebugLevel;
@@ -57,7 +57,7 @@ public class Main
 
     Properties properties = new Properties();
     AppProps.setApplicationJarClass( properties, Main.class );
-    FlowConnector flowConnector = new HadoopFlowConnector( properties );
+    FlowConnector flowConnector = new Hadoop2MR1FlowConnector( properties );
 
     // create SOURCE taps, and read from local file system if inputs are not URLs
     Tap tweetTap = makeTap( tweetPath, new TextDelimited( true, "\t" ) );

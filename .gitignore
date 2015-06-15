@@ -5,6 +5,8 @@ dot
 .gradle
 .idea
 *.iml
+*.ipr
+*.iws
 *.dot
 *.class
 *~
